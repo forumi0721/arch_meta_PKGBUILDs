@@ -1,0 +1,17 @@
+post_install() {
+	#default service
+	systemctl enable bananapi-ledoff.service
+}
+
+pre_upgrade() {
+	pre_install
+}
+
+post_upgrade() {
+	post_install
+}
+
+post_remove() {
+	#default service
+	systemctl disable bananapi-ledoff.service
+}
