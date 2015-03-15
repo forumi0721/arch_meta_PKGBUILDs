@@ -2,13 +2,13 @@
 
 _localpkgver=Y
 pkgname=("stonecold-xorg-extra-meta")
-pkgver=20150306.1
+pkgver=20150315.1
 pkgrel=1
 pkgdesc="Install xorg extra packages"
-arch=("any")
+arch=("x86_64" "armv7h")
 url="http://localhost/"
 license=("custom")
-depends+=(
+depends=(
   "firefox"
   "firefox-i18n-ko"
   "gimp"
@@ -17,6 +17,15 @@ depends+=(
   "libreoffice-fresh-ko"
   "nabi-git"
   "sylpheed"
+)
+depends_x86_64=(
+  "flashplugin"
+  "kodi"
+  "kodi-audioencoder-flac"
+  "kodi-audioencoder-lame"
+  "kodi-audioencoder-vorbis"
+  "kodi-audioencoder-wav"
+  "kodi-pvr-addons"
 )
 
 pkgver() {
