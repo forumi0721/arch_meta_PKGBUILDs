@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-base-meta")
-pkgver=20150306.1
+pkgver=20150315.1
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
@@ -29,6 +29,7 @@ depends=(
   "mc"
   "ncftp"
   "net-tools"
+  "nfs-utils"
   "ntfs-3g"
   "openssh"
   "p7zip"
@@ -74,10 +75,12 @@ pkgver() {
 }
 
 package() {
-  install -dm755 "${pkgdir}/etc/"
+  install -dm755 "${pkgdir}/media"
+
+  install -dm755 "${pkgdir}/etc"
   install -Dm644 "${srcdir}/${pkgname}/etc/locale.conf" "${pkgdir}/etc/"
 
-  install -dm755 "${pkgdir}/etc/"
+  install -dm755 "${pkgdir}/etc"
   install -Dm644 "${srcdir}/${pkgname}/etc/bash.bashrc2" "${pkgdir}/etc/"
 
   install -dm755 "${pkgdir}/etc/ssh"
@@ -95,6 +98,7 @@ package() {
   install -dm750 "${pkgdir}/etc/sudoers.d"
   install -Dm644 "${srcdir}/${pkgname}/etc/sudoers.d/sudoers" "${pkgdir}/etc/sudoers.d/"
 
+  install -dm755 "${pkgdir}/etc"
   install -Dm644 "${srcdir}/${pkgname}/etc/vimrc2" "${pkgdir}/etc/"
 }
 

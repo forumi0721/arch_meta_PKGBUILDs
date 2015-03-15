@@ -65,6 +65,7 @@ post_install() {
 	systemctl enable cronie.service
 	systemctl enable haveged.service
 	systemctl enable hd-idle.service
+	systemctl enable rpcbind.service
 }
 
 pre_upgrade() {
@@ -132,4 +133,5 @@ post_remove() {
 	systemctl disable cronie.service
 	systemctl disable haveged.service
 	systemctl disable hd-idle.service
+	systemctl disable rpcbind.service
 }
