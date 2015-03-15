@@ -7,7 +7,7 @@ gi\.require_version('Vte', '2.90')\n\
 }
 
 pre_upgrade() {
-	pre_install
+	post_remove
 }
 
 post_upgrade() {

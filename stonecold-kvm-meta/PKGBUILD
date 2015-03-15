@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-kvm-meta")
-pkgver=20150306.1
+pkgver=20150315.1
 pkgrel=1
 pkgdesc="Install kvm packages"
 arch=("x86_64")
