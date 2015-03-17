@@ -2,18 +2,18 @@
 
 _localpkgver=Y
 pkgname=("stonecold-xorg-bananapi-meta")
-pkgver=20150306.1
+pkgver=20150317.1
 pkgrel=1
 pkgdesc="Install Banana Pi xorg packages"
 arch=("armv7h")
 url="http://localhost/"
 license=("custom")
 depends=(
-  "cedarx-libs-bpi-git"
-  "libump-bpi-git"
-  "libvdpau-sunxi-bpi-git"
-  "sunxi-mali-bpi-git"
-  "xf86-video-fbturbo-bpi-git"
+  "cedarx-libs-bananapi-git"
+  "libump-bananapi-git"
+  "libvdpau-sunxi-bananapi-git"
+  "sunxi-mali-bananapi-git"
+  "xf86-video-fbturbo-bananapi-git"
 )
 install="${pkgname}.install"
 
