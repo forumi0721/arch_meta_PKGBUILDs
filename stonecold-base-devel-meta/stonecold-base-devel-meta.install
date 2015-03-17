@@ -7,6 +7,12 @@ post_install() {
 		 systemctl enable distccd-armv6h.service
 		 systemctl enable distccd-armv7h.service
 	 fi
+
+	 if [ "$(uname -m)" = "arm" ] || [ "$(uname -m)" = "armv6l" ] || [ "$(uname -m)" = "armv7l" ]; then
+		 if [ -z "$(grep "192.168.0.31" /etc/distcc/hosts)" ]; then
+			 echo "192.168.0.31" >> /etc/distcc/hosts
+		 fi
+	 fi
 }
 
 pre_upgrade() {
@@ -25,5 +31,9 @@ post_remove() {
 		 systemctl disable distccd-armv5.service
 		 systemctl disable distccd-armv6h.service
 		 systemctl disable distccd-armv7h.service
+	 fi
+
+	 if [ "$(uname -m)" = "arm" ] || [ "$(uname -m)" = "armv6l" ] || [ "$(uname -m)" = "armv7l" ]; then
+		 sed -i "/192\.168\.0\.31/d" /etc/distcc/hosts
 	 fi
 }
