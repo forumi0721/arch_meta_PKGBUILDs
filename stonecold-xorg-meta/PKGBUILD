@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-xorg-meta")
-pkgver=20150315.1
+pkgver=20150317.3
 pkgrel=1
 pkgdesc="Install xorg packages"
 arch=("any")
@@ -21,7 +21,17 @@ depends=(
   "ttf-bitstream-vera-sans-mono"
   "ttf-nanum-fonts"
   "ttf-win81-fonts-korean"
-  "wxgtk2.8"
+  "wxgtk"
+)
+depends+=(
+  "chromium"
+  "chromium-pepper-flash"
+  "gimp"
+  "gvim"
+  "libreoffice-fresh"
+  "libreoffice-fresh-ko"
+  "nabi-git"
+  "sylpheed"
 )
 install="${pkgname}.install"
 source=("etc.tar.xz")
