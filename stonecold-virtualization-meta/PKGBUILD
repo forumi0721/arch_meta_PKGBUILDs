@@ -1,25 +1,26 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 _localpkgver=Y
-pkgname=("stonecold-kvm-meta")
-pkgver=20150315.1
+pkgname=("stonecold-virtualization-meta")
+pkgver=20150320.2
 pkgrel=1
-pkgdesc="Install kvm packages"
+pkgdesc="Install virtualization packages"
 arch=("x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
-  "qemu"
-  "polkit"
   "libvirt"
-  "virt-manager"
-  "vte290"
+  "qemu"
+  "qemu-launcher"
+  "qt4"
+  "virtualbox"
+  "virtualbox-ext-vnc"
+  "virtualbox-ext-oracle"
 )
 depends+=(
   "binfmt-qemu-static"
   "qemu-static"
 )
-install="${pkgname}.install"
 source=("50-org.libvirt.unix.manage.rules")
 md5sums=("SKIP")
 
