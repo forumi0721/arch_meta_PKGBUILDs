@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-base-devel-meta")
-pkgver=20150317.2
+pkgver=20150329.1
 pkgrel=1
 pkgdesc="Install base-devel packages"
 arch=("any")
