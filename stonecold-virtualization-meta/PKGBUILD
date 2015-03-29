@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-virtualization-meta")
-pkgver=20150320.2
+pkgver=20150321.1
 pkgrel=1
 pkgdesc="Install virtualization packages"
 arch=("x86_64")
@@ -11,15 +11,16 @@ license=("custom")
 depends=(
   "libvirt"
   "qemu"
-  "qemu-launcher"
-  "qt4"
-  "virtualbox"
-  "virtualbox-ext-vnc"
-  "virtualbox-ext-oracle"
+  "virt-manager"
 )
 depends+=(
   "binfmt-qemu-static"
   "qemu-static"
+)
+depends+=(
+  "ebtables"
+  "dnsmasq"
+  "bridge-utils"
 )
 source=("50-org.libvirt.unix.manage.rules")
 md5sums=("SKIP")
