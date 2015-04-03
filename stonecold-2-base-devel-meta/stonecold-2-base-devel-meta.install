@@ -1,0 +1,24 @@
+echo_red() {
+	echo -e "\e[0;31m${1}\e[0m"
+}
+
+echo_green() {
+	echo -e "\e[0;32m${1}\e[0m"
+}
+
+echo_blue() {
+	echo -e "\e[0;34m${1}\e[0m"
+}
+
+post_install() {
+	echo_green "StoneCold base-devel config start"
+	echo_red   " # /usr/bin/stonecold-base-devel-config.sh"
+	/usr/bin/stonecold-base-devel-config.sh
+	echo_green "Finish"
+	echo
+	echo_green "To configure a service to be automatically started at boot time, use the systemctl command in the following form:"
+	echo_red   " # systemctl enable distccd.service"
+	echo
+	echo_green "The following path is the path where distccd settings are stored"
+	echo_red   " /etc/distcc/hosts"
+}

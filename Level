@@ -1,0 +1,9 @@
+0 boot
+1 base
+2 base-devel
+3 server
+4 media
+5 xorg
+6 xorg driver
+7 virtualization
+8 etc
