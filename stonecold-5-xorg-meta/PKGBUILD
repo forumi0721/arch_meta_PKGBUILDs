@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-5-xorg-meta")
-pkgver=20150404.1
+pkgver=20150409.1
 pkgrel=1
 pkgdesc="Install xorg packages"
 arch=("any")
@@ -79,5 +79,5 @@ package() {
 	install -Dm600 "${srcdir}/etc/lightdm/vncpasswd" "${pkgdir}/etc/lightdm/"
 
 	install -dm755 "${pkgdir}/usr/bin/"
-	install -Dm644 "${srcdir}/stonecold-xorg-config.sh" "${pkgdir}/usr/bin/"
+	install -Dm755 "${srcdir}/stonecold-xorg-config.sh" "${pkgdir}/usr/bin/"
 }
