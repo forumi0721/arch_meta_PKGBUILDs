@@ -11,6 +11,11 @@ echo_blue() {
 }
 
 post_install() {
+        echo_green "StoneCold media config start"
+        echo_red   " # /usr/bin/stonecold-media-config.sh"
+        /usr/bin/stonecold-media-config.sh
+        echo_green "Finish"
+        echo
 	echo_green "To configure a service to be automatically started at boot time, use the systemctl command in the following form:"
 	echo_red   " # systemctl enable minidlna.service"
 	echo_red   " # systemctl enable transmission.service"

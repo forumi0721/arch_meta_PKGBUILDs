@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-4-media-meta")
-pkgver=20150404.1
+pkgver=20150417.1
 pkgrel=1
 pkgdesc="Install media packages"
 arch=("any")
@@ -16,6 +16,8 @@ depends=(
 	"tvheadend-extra"
 )
 install="${pkgname}.install"
+source=("stonecold-media-config.sh")
+md5sums=("SKIP")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -44,5 +46,6 @@ pkgver() {
 }
 
 package() {
-	echo > /dev/null
+	install -dm755 "${pkgdir}/usr/bin"
+	install -Dm755 "${srcdir}/stonecold-media-config.sh" "${pkgdir}/usr/bin/"
 }

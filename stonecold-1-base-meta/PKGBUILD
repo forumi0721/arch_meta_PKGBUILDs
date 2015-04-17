@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-1-base-meta")
-pkgver=20150405.1
+pkgver=20150416.5
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
@@ -45,8 +45,14 @@ depends=(
 	"zip"
 )
 install="${pkgname}.install"
-source=("stonecold-base-config.sh")
-md5sums=("SKIP")
+source=(
+	"stonecold-base-config.sh"
+	"stonecold-ssd-config.sh"
+)
+md5sums=(
+	"SKIP"
+	"SKIP"
+)
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -77,4 +83,5 @@ pkgver() {
 package() {
 	install -dm755 "${pkgdir}/usr/bin"
 	install -Dm755 "${srcdir}/stonecold-base-config.sh" "${pkgdir}/usr/bin/"
+	install -Dm755 "${srcdir}/stonecold-ssd-config.sh" "${pkgdir}/usr/bin/"
 }

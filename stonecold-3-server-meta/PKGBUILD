@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-3-server-meta")
-pkgver=20150404.1
+pkgver=20150416.2
 pkgrel=1
 pkgdesc="Install server packages"
 arch=("any")
@@ -23,6 +23,8 @@ depends+=(
 	"vlmcsd"
 )
 install="${pkgname}.install"
+source=("stonecold-server-config.sh")
+md5sums=("SKIP")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -51,5 +53,6 @@ pkgver() {
 }
 
 package() {
-	echo > /dev/null
+	install -dm755 "${pkgdir}/usr/bin"
+	install -Dm755 "${srcdir}/stonecold-server-config.sh" "${pkgdir}/usr/bin/"
 }
