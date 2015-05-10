@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-1-base-meta")
-pkgver=20150429.1
+pkgver=20150511.1
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
