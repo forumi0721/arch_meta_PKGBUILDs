@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-7-qemu-meta")
-pkgver=20150404.1
+pkgver=20150508.1
 pkgrel=1
 pkgdesc="Install virtualization packages"
 arch=("i686" "x86_64")
@@ -10,8 +10,10 @@ url="http://localhost/"
 license=("custom")
 depends=(
 	"binfmt-qemu-static"
+	"binfmt-support"
 	"qemu-static"
 )
+install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
