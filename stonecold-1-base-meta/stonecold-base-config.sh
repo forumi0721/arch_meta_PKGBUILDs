@@ -472,14 +472,6 @@ let g:explWinSize=20
 EOF
 chmod 644 /etc/vimrc2
 
-
-cp "${temp}/locale.conf" /etc/
-
-rm -rf "${temp}"
-
-#skel
-ln -sf /dev/null /etc/skel/.bash_history
-
 #locale
 sed -i "s/^#ko_KR.UTF-8 UTF-8/ko_KR.UTF-8 UTF-8/g" /etc/locale.gen
 locale-gen
