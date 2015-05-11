@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-8-devel-arm-meta")
-pkgver=20150404.1
+pkgver=20150512.1
 pkgrel=1
 pkgdesc="Install arm packages"
 arch=("x86_64")
@@ -16,6 +16,7 @@ depends=(
 	"distccd-alarm-armv6h"
 	"distccd-alarm-armv7h"
 )
+install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
