@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-0-boot-bananapi-meta")
-pkgver=20150415.1
+pkgver=20150513.1
 pkgrel=1
 pkgdesc="Install BananaPi boot packages"
 arch=("armv7h")

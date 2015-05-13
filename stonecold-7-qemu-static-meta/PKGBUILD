@@ -1,27 +1,16 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 _localpkgver=Y
-pkgname=("stonecold-0-boot-pc-bios-meta")
+pkgname=("stonecold-7-qemu-static-meta")
 pkgver=20150513.1
 pkgrel=1
-pkgdesc="Install pc bios packages"
-arch=("i686" "x86_64")
+pkgdesc="Install virtualization packages"
+arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"grub"
-	"linux-headers"
+	"qemu-user-static-deb"
 )
-depends+=(
-	"acpid"
-	"cpupower"
-	"thermald"
-)
-conflicts=(
-	"stonecold-0-boot-pc-efi-meta"
-	"stonecold-0-boot-vm-meta"
-)
-install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

@@ -21,4 +21,11 @@ post_install() {
 	echo
 	echo_green "The following path is the path where distccd settings are stored"
 	echo_red   " /etc/distcc/hosts"
+	echo
+	echo_green "Installed scripts"
+	echo_red   " # /usr/bin/stonecold-base-devel-config.sh"
+}
+
+post_upgrade() {
+	post_install
 }

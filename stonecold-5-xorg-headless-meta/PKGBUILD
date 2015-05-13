@@ -1,10 +1,10 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 _localpkgver=Y
-pkgname=("stonecold-5-xorg-meta")
-pkgver=20150409.1
+pkgname=("stonecold-5-xorg-headless-meta")
+pkgver=20150513.1
 pkgrel=1
-pkgdesc="Install xorg packages"
+pkgdesc="Install xorg headless packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
@@ -33,8 +33,6 @@ depends+=(
 )
 conflicts=("stonecold-5-xorg-meta")
 install="${pkgname}.install"
-source=("stonecold-xorg-config.sh")
-md5sums=("SKIP")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -63,6 +61,5 @@ pkgver() {
 }
 
 package() {
-	install -dm755 "${pkgdir}/usr/bin/"
-	install -Dm755 "${srcdir}/stonecold-xorg-config.sh" "${pkgdir}/usr/bin/"
+	echo > /dev/null
 }

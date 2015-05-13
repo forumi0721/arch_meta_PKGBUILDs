@@ -1,48 +1,17 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 _localpkgver=Y
-pkgname=("stonecold-5-xorg-meta")
+pkgname=("stonecold-3-database-meta")
 pkgver=20150513.1
 pkgrel=1
-pkgdesc="Install xorg packages"
+pkgdesc="Install database packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"gvfs"
-	"gvfs-afp"
-	"gvfs-mtp"
-	"gvfs-smb"
-	"lightdm"
-	"lightdm-gtk-greeter"
-	"pygtk"
-	"tango-icon-theme"
-	"tigervnc"
-	"ttf-bitstream-vera-sans-mono"
-	"ttf-nanum-fonts"
-	"ttf-win81-fonts-korean"
-	"wxgtk"
+	"mariadb"
 )
-depends+=(
-	"chromium"
-	"chromium-pepper-flash"
-	"gimp"
-	"gvim"
-	"libreoffice-fresh"
-	"libreoffice-fresh-ko"
-	"nabi-git"
-	"sylpheed"
-)
-conflicts=("stonecold-5-xorg-headless-meta")
 install="${pkgname}.install"
-source=(
-	"${pkgname}.tar.xz"
-	"stonecold-xorg-config.sh"
-)
-md5sums=(
-	"SKIP"
-	"SKIP"
-)
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -71,13 +40,5 @@ pkgver() {
 }
 
 package() {
-	install -dm755 "${pkgdir}/etc/"
-	install -Dm644 "${srcdir}/etc/xprofile" "${pkgdir}/etc/"
-
-	install -dm755 "${pkgdir}/etc/lightdm"
-	install -Dm755 "${srcdir}/etc/lightdm/display-setup-script.sh" "${pkgdir}/etc/lightdm/"
-	install -Dm600 "${srcdir}/etc/lightdm/vncpasswd" "${pkgdir}/etc/lightdm/"
-
-	install -dm755 "${pkgdir}/usr/bin/"
-	install -Dm755 "${srcdir}/stonecold-xorg-config.sh" "${pkgdir}/usr/bin/"
+	echo > /dev/null
 }

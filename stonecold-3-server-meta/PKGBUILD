@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-3-server-meta")
-pkgver=20150416.2
+pkgver=20150513.2
 pkgrel=1
 pkgdesc="Install server packages"
 arch=("any")
@@ -10,7 +10,6 @@ url="http://localhost/"
 license=("custom")
 depends=(
 	"apache-tools"
-	"mariadb"
 	"netatalk"
 	"nfs-utils"
 	"nginx-with-dav"

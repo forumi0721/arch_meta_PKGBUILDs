@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-0-boot-pc-efi-meta")
-pkgver=20150404.1
+pkgver=20150513.1
 pkgrel=1
 pkgdesc="Install pc efi packages"
 arch=("x86_64")
