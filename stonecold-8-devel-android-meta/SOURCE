@@ -1,0 +1,6 @@
+#!/bin/sh
+
+LOCALPKGBUILD="Y"
+OWNER="Y"
+SOURCETYPE="local"
+

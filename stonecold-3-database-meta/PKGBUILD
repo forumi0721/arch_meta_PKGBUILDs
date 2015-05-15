@@ -1,7 +1,5 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-_localpkgbuild=Y
-
 pkgname=("stonecold-3-database-meta")
 pkgver=20150513.1
 pkgrel=1
