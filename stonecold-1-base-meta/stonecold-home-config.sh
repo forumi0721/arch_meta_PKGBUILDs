@@ -55,6 +55,62 @@ cat << 'EOF' > ~/.gitconfig
 EOF
 chmod 644 ~/.gitconfig
 
+#vncserver
+mkdir -p ~/.vnc
+cat << 'EOF' | xxd -r -ps > ~/.vnc/vncpasswd
+d58c476d039c3dc4
+EOF
+chmod 600 ~/.vnc/vncpasswd
+
+cat << 'EOF' > ~/.vnc/xstartup
+#!/bin/sh
+
+#unset SESSION_MANAGER
+#unset DBUS_SESSION_BUS_ADDRESS
+#OS=`uname -s`
+#if [ $OS = 'Linux' ]; then
+#  case "$WINDOWMANAGER" in
+#    *gnome*)
+#      if [ -e /etc/SuSE-release ]; then
+#        PATH=$PATH:/opt/gnome/bin
+#        export PATH
+#      fi
+#      ;;
+#  esac
+#fi
+#if [ -x /etc/X11/xinit/xinitrc ]; then
+#  exec /etc/X11/xinit/xinitrc
+#fi
+#if [ -f /etc/X11/xinit/xinitrc ]; then
+#  exec sh /etc/X11/xinit/xinitrc
+#fi
+#[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+#xsetroot -solid grey
+#xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+#twm &
+
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
+export LANG=ko_KR.UTF-8
+export XKL_XMODMAP_DISABLE=1
+
+if [ -e /usr/bin/nabi ]; then
+	export XIM=nabi
+	export XIM_PROGRAM=/usr/bin/nabi
+	export XIM_ARGS=
+	export XMODIFIERS="@im=nabi"
+	export GTK_IM_MODULE=xim
+	export QT_IM_MODULE=xim
+	/usr/bin/nabi &
+fi
+
+vncconfig -nowin&
+
+exec startxfce4
+EOF
+chmod 755 ~/.vnc/xstartup
+
 #skel
 for skel in $(find /etc/skel/ -maxdepth 1 -mindepth 1)
 do

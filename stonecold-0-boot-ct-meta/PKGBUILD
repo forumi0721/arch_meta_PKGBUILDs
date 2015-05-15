@@ -1,29 +1,21 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 _localpkgver=Y
-pkgname=("stonecold-0-boot-pc-efi-meta")
-pkgver=20150513.2
+pkgname=("stonecold-0-boot-ct-meta")
+pkgver=20150513.1
 pkgrel=1
-pkgdesc="Install pc efi packages"
-arch=("x86_64")
+pkgdesc="Install ct boot packages"
+arch=("i686" "x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"efibootmgr"
-	"grub"
 	"linux-headers"
 )
-depends+=(
-	"acpid"
-	"cpupower"
-	"thermald"
-)
 conflicts=(
-	"stonecold-0-boot-pc-boot-meta"
+	"stonecold-0-boot-pc-bios-meta"
+	"stonecold-0-boot-pc-efi-meta"
 	"stonecold-0-boot-vm-meta"
-	"stonecold-0-boot-ct-meta"
 )
-install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-4-media-meta")
-pkgver=20150513.2
+pkgver=20150513.3
 pkgrel=1
 pkgdesc="Install media packages"
 arch=("any")

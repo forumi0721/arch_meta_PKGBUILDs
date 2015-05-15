@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-0-boot-vm-meta")
-pkgver=20150403.1
+pkgver=20150513.1
 pkgrel=1
 pkgdesc="Install vm boot packages"
 arch=("i686" "x86_64")
@@ -15,6 +15,7 @@ depends=(
 conflicts=(
 	"stonecold-0-boot-pc-bios-meta"
 	"stonecold-0-boot-pc-efi-meta"
+	"stonecold-0-boot-ct-meta"
 )
 
 pkgver() {

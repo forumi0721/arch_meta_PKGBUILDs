@@ -2,7 +2,7 @@
 
 _localpkgver=Y
 pkgname=("stonecold-0-boot-pc-bios-meta")
-pkgver=20150513.1
+pkgver=20150513.2
 pkgrel=1
 pkgdesc="Install pc bios packages"
 arch=("i686" "x86_64")
@@ -20,6 +20,7 @@ depends+=(
 conflicts=(
 	"stonecold-0-boot-pc-efi-meta"
 	"stonecold-0-boot-vm-meta"
+	"stonecold-0-boot-ct-meta"
 )
 install="${pkgname}.install"
 
