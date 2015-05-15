@@ -1,6 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-_localpkgver=Y
+_localpkgbuild=Y
+
 pkgname=("stonecold-4-media-meta")
 pkgver=20150513.3
 pkgrel=1

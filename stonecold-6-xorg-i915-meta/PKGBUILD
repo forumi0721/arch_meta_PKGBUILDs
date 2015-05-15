@@ -1,6 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-_localpkgver=Y
+_localpkgbuild=Y
+
 pkgname=("stonecold-6-xorg-i915-meta")
 pkgver=20150404.1
 pkgrel=1
