@@ -69,7 +69,7 @@ alias pkgfile='sudo pkgfile'
 alias systemctl='sudo systemctl'
 
 if [ -x /usr/bin/makepkg ]; then
-	alias mk='BUILDDIR=/var/tmp/makepkg makepkg -cCrs --skippgpcheck'
+	alias mk='BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck'
 fi
 
 #Environment Setting
