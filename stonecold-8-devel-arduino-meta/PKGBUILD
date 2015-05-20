@@ -1,15 +1,17 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-arduino-meta")
-pkgver=20150404.1
+pkgver=20150520.1
 pkgrel=1
 pkgdesc="Install arduino packages"
 arch=("i686" "x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
+	"giflib"
 	"arduino"
 )
+install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
