@@ -76,15 +76,15 @@ fi
 export VISUAL="vi"
 export EDITOR="vi"
 export PAGER="less"
-if [ -x /usr/bin/ccache ]; then
-	export USE_CCACHE=1
-	if [ -x /usr/bin/gcc ]; then
-		export CC="ccache gcc"
-	fi
-	if [ -x /usr/bin/g++ ]; then
-		export CXX="ccache g++"
-	fi
-fi
+#if [ -x /usr/bin/ccache ]; then
+#	export USE_CCACHE=1
+#	if [ -x /usr/bin/gcc ]; then
+#		export CC="ccache gcc"
+#	fi
+#	if [ -x /usr/bin/g++ ]; then
+#		export CXX="ccache g++"
+#	fi
+#fi
 
 #Path
 if [ -e ~/.bin ]; then
