@@ -1,14 +1,14 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-android-meta")
-pkgver=20150526.1
+pkgver=20150527.1
 pkgrel=1
 pkgdesc="Install android packages"
 arch=("i686" "x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"jdk7-openjdk"
+	"java-runtime"
 )
 depends_x86_64+=(
 	"gcc-multilib"
