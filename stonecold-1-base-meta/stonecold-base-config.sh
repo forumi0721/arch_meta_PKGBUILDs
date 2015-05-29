@@ -67,6 +67,7 @@ alias pacman='sudo pacman'
 alias abs='sudo abs'
 alias pkgfile='sudo pkgfile'
 alias systemctl='sudo systemctl'
+alias systemd-nspawn='sudo systemd-nspawn'
 
 if [ -x /usr/bin/makepkg ]; then
 	alias mk='BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck'
@@ -87,6 +88,9 @@ export PAGER="less"
 #fi
 
 #Path
+if [ -e ~/.bin2 ]; then
+    export PATH=~/.bin2:${PATH}
+fi
 if [ -e ~/.bin ]; then
     export PATH=~/.bin:${PATH}
 fi
