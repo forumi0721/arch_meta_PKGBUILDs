@@ -473,6 +473,21 @@ let g:explVertical=1
 let g:explSplitRight=1
 let g:explStartRight=1
 let g:explWinSize=20
+
+"HexMod
+noremap <F8> :call HexMode()<CR>
+let $hexmode=0
+function HexMode()
+	set binary
+	set noeol
+	if $hexmode>0
+		:%!xxd -r
+		let $hexmode=0
+	else
+		:%!xxd
+		let $hexmode=1
+	endif
+endfunction
 EOF
 chmod 644 /etc/vimrc2
 
