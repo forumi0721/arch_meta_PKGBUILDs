@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-6-xorg-bananapi-meta")
-pkgver=20150317.1
+pkgver=20150612.1
 pkgrel=1
 pkgdesc="Install Banana Pi xorg packages"
 arch=("armv7h")

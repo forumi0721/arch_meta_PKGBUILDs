@@ -130,6 +130,11 @@ function pbpaste {
 EOF
 chmod 644 /etc/bash.bashrc2
 
+if [ -z "$(grep '[ -r /etc/bash.bashrc2  ] && . /etc/bash.bashrc2' /etc/bash.bashrc)" ]; then
+	echo '[ -r /etc/bash.bashrc3  ] && . /etc/bash.bashrc3' >> /etc/bash.bashrc
+fi
+
+
 #locale
 cat << 'EOF' > /etc/locale.conf
 if [ -z "${TERM}" ] || [ "${TERM}" = "linux" ] || [ "${TERM}" = "vt220" ] || [ "${TERM}" = "dumb" ]; then
@@ -474,7 +479,7 @@ let g:explSplitRight=1
 let g:explStartRight=1
 let g:explWinSize=20
 
-"HexMod
+"HexMode
 noremap <F8> :call HexMode()<CR>
 let $hexmode=0
 function HexMode()

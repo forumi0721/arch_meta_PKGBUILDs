@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-bananapi-meta")
-pkgver=20150317.1
+pkgver=20150612.1
 pkgrel=1
 pkgdesc="Install BananaPi base packages"
 arch=("armv7h")
