@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-meta")
-pkgver=20150612.2
+pkgver=20150622.1
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
@@ -24,6 +24,8 @@ depends=(
 	"gptfdisk"
 	"haveged"
 	"hd-idle"
+	"iotop"
+	"lsof"
 	"mc"
 	"ncftp"
 	"net-tools"
