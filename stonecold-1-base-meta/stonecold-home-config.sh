@@ -121,6 +121,8 @@ done
 sed -i "s/^alias ls=/#^alias ls=/g" ~/.bashrc
 sed -i "s/^PS1=/#PS1=/g" ~/.bashrc
 
+#.bash_history
+ln -sf /dev/null ~/.bash_history
 
 exit 0
 
