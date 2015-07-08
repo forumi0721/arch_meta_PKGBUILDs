@@ -57,10 +57,10 @@ chmod 644 ~/.gitconfig
 
 #vncserver
 mkdir -p ~/.vnc
-cat << 'EOF' | xxd -r -ps > ~/.vnc/vncpasswd
+cat << 'EOF' | xxd -r -ps > ~/.vnc/passwd
 d58c476d039c3dc4
 EOF
-chmod 600 ~/.vnc/vncpasswd
+chmod 600 ~/.vnc/passwd
 
 cat << 'EOF' > ~/.vnc/xstartup
 #!/bin/sh
@@ -114,10 +114,13 @@ chmod 755 ~/.vnc/xstartup
 #skel
 for skel in $(find /etc/skel/ -maxdepth 1 -mindepth 1)
 do
-	if [ ! -e "~/$(basename "${skel}")" ]; then
+	if [ ! -e ~/"$(basename "${skel}")" ]; then
 		cp -ar "${skel}" ~/
 	fi
 done
+sed -i "s/^alias ls=/#^alias ls=/g" ~/.bashrc
+sed -i "s/^PS1=/#PS1=/g" ~/.bashrc
+
 
 exit 0
 

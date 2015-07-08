@@ -131,7 +131,7 @@ EOF
 chmod 644 /etc/bash.bashrc2
 
 if [ -z "$(grep '[ -r /etc/bash.bashrc2  ] && . /etc/bash.bashrc2' /etc/bash.bashrc)" ]; then
-	echo '[ -r /etc/bash.bashrc3  ] && . /etc/bash.bashrc3' >> /etc/bash.bashrc
+	echo '[ -r /etc/bash.bashrc2  ] && . /etc/bash.bashrc2' >> /etc/bash.bashrc
 fi
 
 
