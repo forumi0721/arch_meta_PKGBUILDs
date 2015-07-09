@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-meta")
-pkgver=20150708.2
+pkgver=20150709.3
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
@@ -13,6 +13,7 @@ depends=(
 	"arch-install-scripts"
 	"autostart"
 	"bash-completion"
+	"bashdb"
 	"btrfs-progs"
 	"cifs-utils"
 	"cpio"
@@ -43,6 +44,13 @@ depends=(
 	"wget"
 	"yaourt"
 	"zip"
+)
+depends+=(
+	"zsh"
+	"zsh-completions"
+	"zsh-syntax-highlighting"
+	"zshdb"
+	"oh-my-zsh-git"
 )
 install="${pkgname}.install"
 source=(

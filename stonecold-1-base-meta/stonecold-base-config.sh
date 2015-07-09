@@ -5,22 +5,34 @@ if [ "${EUID}" != "0" ]; then
 	exit $?
 fi
 
-#bahrc
-cat << 'EOF' > /etc/bash.bashrc2
+#commonrc
+cat << 'EOF' > /etc/commonrc
 #!/bin/sh
 
-# "Command not found" hook
-if [[ ! -z "${TERM}" && "${TERM}" != "dumb" ]]; then
-	if [[ "$(uname -m)" = "x86_64" || "$(uname -m)" = "x86" ]]; then
-		if [ -e /usr/share/doc/pkgfile/command-not-found.bash ]; then
-			source /usr/share/doc/pkgfile/command-not-found.bash
-		fi
-	fi
+#Shell
+SH=
+#if [ ! -z "$(set | grep BASH)" -o "${SHELL/bash/}" != "${SHELL}" ]; then
+#   SH=bash
+#elif [ ! -z "$(set | grep ZSH)" -o "${SHELL/zsh/}" != "${SHELL}" ]; then
+#   SH=zsh
+#fi
+if ! shopt &> /dev/null ; then
+	SH=zsh
+else
+	SH=bash
 fi
 
-#Term
-if [ "${TERM}" = "vt220" ]; then
-	export TERM=linux
+#Language
+export LANG=${LANG:-ko_KR.UTF-8}
+export LC_ALL=${LC_ALL:-ko_KR.UTF-8}
+
+# "Command not found" hook
+if [ ! -z "${TERM}" -a "${TERM}" != "dumb" -a \( "$(uname -m)" = "x86_64" -o "$(uname -m)" = "x86" \) ]; then
+	if [ "${SH}" = "bash" -a -e /usr/share/doc/pkgfile/command-not-found.bash ]; then
+		source /usr/share/doc/pkgfile/command-not-found.bash
+	elif [ "${SH}" = "zsh" -a -e /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+		source /usr/share/doc/pkgfile/command-not-found.zsh
+	fi
 fi
 
 #Color
@@ -28,64 +40,62 @@ export CLICOLOR=1
 
 #Prompt
 if [ "${CLICOLOR}" = "1" ]; then
-	if [ "${EUID}" = "0" ]; then
-		export PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
-	else
-		export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
-	fi	  
+	if [ "${SH}" = "bash" ]; then
+		if [ "${EUID}" = "0" ]; then
+			export PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+		else
+			export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+		fi	  
+	fi
+	export LSCOLORS=ExFxBxDxCxegedabagacad
+	alias ls="ls --color=auto"
+	alias grep="grep --color=auto"
+	alias egrep="grep --color=auto"
+	alias fgrep="grep --color=auto"
 fi
 
 # aliases
 alias sudo='sudo '
-alias poweroff='sudo poweroff'
-alias halt='sudo poweroff'
-alias shutdown='sudo shutdown'
-alias reboot='sudo reboot'
-
-alias mount='sudo mount'
-alias umount='sudo umount'
-
-alias cps='sudo cp'
-alias mvs='sudo mv'
-alias rms='sudo rm'
-alias lns='sudo ln'
-alias mds='sudo mkdir'
-alias vis='sudo vi'
-
 alias cls='clear'
-alias df='df -h'
-alias du='du -h'
-alias ls='ls --color=auto'
 alias l='ls'
 alias la='ls -la'
 alias ll='ls -l'
-alias grep='grep --color'
-alias egrep='egrep --color'
-alias fgrep='fgrep --color'
+alias df='df -h'
+alias du='du -h'
+alias vi='vim'
+if [ "${UID}" != "0" ]; then
+	alias poweroff='sudo poweroff'
+	alias halt='sudo poweroff'
+	alias shutdown='sudo shutdown'
+	alias reboot='sudo reboot'
+	alias dmesg="sudo dmesg"
 
-alias pacman='sudo pacman'
-alias abs='sudo abs'
-alias pkgfile='sudo pkgfile'
-alias systemctl='sudo systemctl'
-alias systemd-nspawn='sudo systemd-nspawn'
+	alias mount='sudo mount'
+	alias umount='sudo umount'
 
-if [ -x /usr/bin/makepkg ]; then
-	alias mk='BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck'
+	alias pacman='sudo pacman'
+	alias abs='sudo abs'
+	alias pkgfile='sudo pkgfile'
+	alias systemctl='sudo systemctl'
+	alias systemd-nspawn='sudo systemd-nspawn'
+
+	alias cps='sudo cp'
+	alias mvs='sudo mv'
+	alias rms='sudo rm'
+	alias lns='sudo ln'
+	alias mds='sudo mkdir'
+	alias vis='sudo vi'
+
+	alias rm="rm -i"
+	alias cp="cp -i"
+	alias mv="mv -i"
 fi
 
 #Environment Setting
 export VISUAL="vi"
 export EDITOR="vi"
+export SVN_MERGE="vi -d"
 export PAGER="less"
-if [ -x /usr/bin/ccache ]; then
-	export USE_CCACHE=1
-	#if [ -x /usr/bin/gcc ]; then
-	#	export CC="ccache gcc"
-	#fi
-	#if [ -x /usr/bin/g++ ]; then
-	#	export CXX="ccache g++"
-	#fi
-fi
 
 #Path
 if [ -e ~/.bin2 ]; then
@@ -95,8 +105,14 @@ if [ -e ~/.bin ]; then
     export PATH=~/.bin:${PATH}
 fi
 
+#Term
+if [ "${TERM}" = "vt220" ]; then
+	export TERM=linux
+fi
+
+
 #functions
-function pbcopy {
+pbcopy() {
 	local cb=/tmp/clipboard
 	if [ -e ${cb}.lock ]; then
 		echo "Clipboard locked"
@@ -112,7 +128,7 @@ function pbcopy {
 	rm -rf ${cb}.lock
 }
 
-function pbpaste {
+pbpaste() {
 	local cb=/tmp/clipboard
 	if [ -e ${cb}.lock ]; then
 		return
@@ -125,15 +141,133 @@ function pbpaste {
 	rm -rf ${cb}.lock
 }
 
-[ -r /etc/bash.bashrc3  ] && . /etc/bash.bashrc3
+mk() {
+	if [ -x /usr/bin/makepkg ]; then
+		BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck
+	else
+		echo "command not found: makepkg"
+	fi
+}
+
+unset SH
+
+[ -r /etc/commonrc2  ] && . /etc/commonrc2
 
 EOF
-chmod 644 /etc/bash.bashrc2
+chmod 644 /etc/commonrc
 
-if [ -z "$(grep '[ -r /etc/bash.bashrc2  ] && . /etc/bash.bashrc2' /etc/bash.bashrc)" ]; then
-	echo '[ -r /etc/bash.bashrc2  ] && . /etc/bash.bashrc2' >> /etc/bash.bashrc
+if [ -z "$(grep '[ -r /etc/commonrc  ] && . /etc/commonrc' /etc/bash.bashrc)" ]; then
+	echo '[ -r /etc/commonrc  ] && . /etc/commonrc' >> /etc/bash.bashrc
 fi
 
+if [ ! -e /etc/zsh ]; then
+	mkdir -p /etc/zsh
+fi
+cat << 'EOF' > /etc/zsh/zshrc
+# Path to your oh-my-zsh installation.
+ZSH=/usr/share/oh-my-zsh/
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="gentoo"
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git)
+plugins=(git colored-man colorize github vagrant virtualenv pip python zsh-syntax-highlighting gnu-utils svn screen)
+
+# User configuration
+
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+
+ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump"
+
+source $ZSH/oh-my-zsh.sh
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#bindkey -e  
+bindkey '[C' forward-word  
+bindkey '[D' backward-word  
+
+[ -e /etc/commonrc ] && . /etc/commonrc
+
+EOF
+chmod 644 /etc/zsh/zshrc
 
 #locale
 cat << 'EOF' > /etc/locale.conf

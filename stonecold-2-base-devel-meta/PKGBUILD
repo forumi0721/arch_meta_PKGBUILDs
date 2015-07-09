@@ -1,14 +1,13 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-2-base-devel-meta")
-pkgver=20150513.1
+pkgver=20150709.1
 pkgrel=1
 pkgdesc="Install base-devel packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"bashdb"
 	"ccache"
 	"cscope"
 	"ctags"
