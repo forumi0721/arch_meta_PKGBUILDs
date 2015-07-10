@@ -98,6 +98,7 @@ export VISUAL="vi"
 export EDITOR="vi"
 export SVN_MERGE="vi -d"
 export PAGER="less"
+export LESSHISTFILE=/dev/null
 
 #Path
 if [ -e ~/.bin2 ]; then
