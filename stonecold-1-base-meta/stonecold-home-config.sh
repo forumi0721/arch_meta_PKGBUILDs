@@ -52,6 +52,8 @@ cat << 'EOF' > ~/.gitconfig
 	name = forumi0721
 [push]
 	default = simple
+[color]
+	ui = auto
 EOF
 chmod 644 ~/.gitconfig
 
