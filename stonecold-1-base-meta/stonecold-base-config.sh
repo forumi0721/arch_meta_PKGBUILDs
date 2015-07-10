@@ -77,6 +77,8 @@ if [ "${UID}" != "0" ]; then
 	alias abs='sudo abs'
 	alias pkgfile='sudo pkgfile'
 	alias systemctl='sudo systemctl'
+	alias journalctl='sudo journalctl'
+	alias iotop='sudo iotop'
 	alias systemd-nspawn='sudo systemd-nspawn'
 
 	alias cps='sudo cp'
