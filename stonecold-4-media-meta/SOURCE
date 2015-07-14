@@ -1,6 +1,5 @@
 #!/bin/sh
 
-LOCALPKGBUILD="Y"
-OWNER="Y"
+LOCALPKGVER="Y"
 SOURCETYPE="local"
 
