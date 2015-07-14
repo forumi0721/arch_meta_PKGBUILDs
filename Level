@@ -6,4 +6,5 @@
 5 xorg
 6 xorg driver
 7 virtualization
-8 etc
+8 devel
+9 etc
