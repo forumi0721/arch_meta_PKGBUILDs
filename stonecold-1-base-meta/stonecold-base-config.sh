@@ -22,10 +22,6 @@ else
 	SH=bash
 fi
 
-#Language
-export LANG=${LANG:-ko_KR.UTF-8}
-export LC_ALL=${LC_ALL:-ko_KR.UTF-8}
-
 # "Command not found" hook
 if [ ! -z "${TERM}" -a "${TERM}" != "dumb" -a \( "$(uname -m)" = "x86_64" -o "$(uname -m)" = "x86" \) ]; then
 	if [ "${SH}" = "bash" -a -e /usr/share/doc/pkgfile/command-not-found.bash ]; then
@@ -63,6 +59,15 @@ alias ll='ls -l'
 alias df='df -h'
 alias du='du -h'
 alias vi='vim'
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias cps='sudo cp'
+alias mvs='sudo mv'
+alias rms='sudo rm'
+alias lns='sudo ln'
+alias mds='sudo mkdir'
+alias vis='sudo vi'
 if [ "${UID}" != "0" ]; then
 	alias poweroff='sudo poweroff'
 	alias halt='sudo poweroff'
@@ -79,18 +84,7 @@ if [ "${UID}" != "0" ]; then
 	alias systemctl='sudo systemctl'
 	alias journalctl='sudo journalctl'
 	alias iotop='sudo iotop'
-	alias systemd-nspawn='sudo systemd-nspawn'
-
-	alias cps='sudo cp'
-	alias mvs='sudo mv'
-	alias rms='sudo rm'
-	alias lns='sudo ln'
-	alias mds='sudo mkdir'
-	alias vis='sudo vi'
-
-	alias rm="rm -i"
-	alias cp="cp -i"
-	alias mv="mv -i"
+	alias lsof='sudo lsof'
 fi
 
 #Environment Setting
@@ -146,7 +140,7 @@ pbpaste() {
 
 mk() {
 	if [ -x /usr/bin/makepkg ]; then
-		BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck
+		BUILDDIR=/var/tmp/makepkg makepkg -cCrs --noconfirm --skippgpcheck "$@"
 	else
 		echo "command not found: makepkg"
 	fi
@@ -274,7 +268,7 @@ chmod 644 /etc/zsh/zshrc
 
 #locale
 cat << 'EOF' > /etc/locale.conf
-if [ -z "${TERM}" ] || [ "${TERM}" = "linux" ] || [ "${TERM}" = "vt220" ] || [ "${TERM}" = "dumb" ]; then
+if [ -z "${TERM}" -o "${TERM}" = "linux" -o "${TERM}" = "vt220" -o "${TERM}" = "dumb" ]; then
 	LANG=C
 else
 	LANG=ko_KR.UTF-8
