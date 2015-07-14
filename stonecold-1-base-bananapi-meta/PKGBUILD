@@ -1,17 +1,24 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-bananapi-meta")
-pkgver=20150612.1
+pkgver=20150714.2
 pkgrel=1
 pkgdesc="Install BananaPi base packages"
 arch=("armv7h")
 url="http://localhost/"
 license=("custom")
 depends=(
+	"archlinux-keyring"
+	"archlinuxarm-keyring"
+	"pogoplug"
+	"wt-rpm-git"
+)
+depends+=(
 	"python-bananapi-gpio-git"
 	"python2-bananapi-gpio-git"
 	"wiringbp-bananapi-git"
 )
+install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
