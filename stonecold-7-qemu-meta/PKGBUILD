@@ -1,17 +1,15 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-7-qemu-meta")
-pkgver=20150513.2
+pkgver=20150714.1
 pkgrel=1
 pkgdesc="Install virtualization packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"binfmt-support"
 	"qemu"
 )
-install="${pkgname}.install"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
