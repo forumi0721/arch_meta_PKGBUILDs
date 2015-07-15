@@ -77,6 +77,7 @@ if [ "${UID}" != "0" ]; then
 
 	alias mount='sudo mount'
 	alias umount='sudo umount'
+	alias su='sudo su'
 
 	alias pacman='sudo pacman'
 	alias abs='sudo abs'
