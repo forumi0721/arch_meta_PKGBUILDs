@@ -14,6 +14,7 @@ post_install() {
 	echo_green "To configure a service to be automatically started at boot time, use the systemctl command in the following form:"
 	echo_red   " # systemctl enable pogoplug.service"
 	echo_red   " # systemctl enable wt-rpm.service"
+	echo_red   " # systemctl enable lcd_display.service"
 }
 
 post_upgrade() {
