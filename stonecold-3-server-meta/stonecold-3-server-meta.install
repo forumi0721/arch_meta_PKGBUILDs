@@ -26,6 +26,7 @@ post_install() {
 	echo_red   " # systemctl enable vsftpd.service"
 	echo_red   " # systemctl enable rpcbind.service"
 	echo_red   " # systemctl enable target.service"
+	echo_red   " # systemctl enable noip2.service"
 	echo
 	echo_green "Installed scripts"
 	echo_red   " # /usr/bin/stonecold-server-config.sh"
