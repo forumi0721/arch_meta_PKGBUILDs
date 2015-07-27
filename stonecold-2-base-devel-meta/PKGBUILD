@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-2-base-devel-meta")
-pkgver=20150709.1
+pkgver=20150728.1
 pkgrel=1
 pkgdesc="Install base-devel packages"
 arch=("any")
@@ -16,9 +16,6 @@ depends=(
 	"git"
 	"strace"
 	"subversion"
-)
-depends+=(
-	"aurupload"
 )
 install="${pkgname}.install"
 source=("stonecold-base-devel-config.sh")
