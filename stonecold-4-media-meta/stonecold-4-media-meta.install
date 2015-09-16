@@ -20,7 +20,7 @@ post_install() {
 	echo_red   " # systemctl enable minidlna.service"
 	echo_red   " # systemctl enable transmission.service"
 	echo_red   " # systemctl enable tvheadend.service"
-	echo_red   " # systemctl enable mc2xml.timer"
+	echo_red   " # systemctl enable epg2xml.timer"
 	echo
 	echo_green "Installed scripts"
 	echo_red   " # /usr/bin/stonecold-media-config.sh"
