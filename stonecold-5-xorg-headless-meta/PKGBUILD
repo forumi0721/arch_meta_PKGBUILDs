@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-headless-meta")
-pkgver=20151026.1
+pkgver=20151027.1
 pkgrel=1
 pkgdesc="Install xorg headless packages"
 arch=("any")
