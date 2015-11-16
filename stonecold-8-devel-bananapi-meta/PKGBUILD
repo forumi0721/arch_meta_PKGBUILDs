@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-bananapi-meta")
-pkgver=20150404.1
+pkgver=20151116.1
 pkgrel=1
 pkgdesc="Install sunxi packages"
 arch=("x86_64")
@@ -16,7 +16,7 @@ depends=(
 	"pkg-config"
 	"uboot-tools"
 	"wget"
-	"x-tools-armv7h"
+	"x-tools-4-armv7h"
 	"zlib"
 )
 

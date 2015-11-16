@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-android-meta")
-pkgver=20150617.2
+pkgver=20151115.1
 pkgrel=1
 pkgdesc="Install android packages"
 arch=("i686" "x86_64")
@@ -11,7 +11,7 @@ depends=(
 	"java-runtime"
 	"python-virtualenvwrapper"
 	"bootimgtool-git"
-	"sun-java6"
+	"jdk7-openjdk"
 	"arm-eabi"
 )
 depends_x86_64+=(
