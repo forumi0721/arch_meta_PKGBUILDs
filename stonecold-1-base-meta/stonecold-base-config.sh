@@ -271,8 +271,12 @@ chmod 644 /etc/zsh/zshrc
 cat << 'EOF' > /etc/locale.conf
 if [ -z "${TERM}" -o "${TERM}" = "linux" -o "${TERM}" = "vt220" -o "${TERM}" = "dumb" ]; then
 	LANG=C
+	LC_COLLATE=C
+	LC_CTYPE=C
 else
 	LANG=ko_KR.UTF-8
+	LC_COLLATE=ko_KR.UTF-8
+	LC_CTYPE=ko_KR.UTF-8
 fi
 EOF
 chmod 644 /etc/locale.conf
