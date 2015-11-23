@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-3-server-meta")
-pkgver=20151028.1
+pkgver=20151123.1
 pkgrel=1
 pkgdesc="Install server packages"
 arch=("any")
