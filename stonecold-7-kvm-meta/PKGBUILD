@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-7-kvm-meta")
-pkgver=20150617.2
+pkgver=20151205.1
 pkgrel=1
 pkgdesc="Install virtualization packages"
 arch=("i686" "x86_64")
@@ -11,7 +11,7 @@ depends=(
 	"libvirt"
 	"qemu"
 	"virt-manager"
-	"webvirtmgr"
+	"webvirtmgr-git"
 )
 depends+=(
 	"ebtables"
