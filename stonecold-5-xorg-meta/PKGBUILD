@@ -1,13 +1,14 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-meta")
-pkgver=20151026.1
+pkgver=20151207.1
 pkgrel=1
 pkgdesc="Install xorg packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
+	"gnome-keyring"
 	"gvfs"
 	"gvfs-mtp"
 	"gvfs-smb"
