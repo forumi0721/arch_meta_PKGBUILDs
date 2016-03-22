@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-4-media-meta")
-pkgver=20150916.1
+pkgver=20160322.1
 pkgrel=1
 pkgdesc="Install media packages"
 arch=("any")
@@ -12,7 +12,6 @@ depends=(
 	"transmission-cli"
 	"tvheadend"
 	"tvheadend-extra"
-	"epg2xml-git"
 )
 install="${pkgname}.install"
 source=("stonecold-media-config.sh")
