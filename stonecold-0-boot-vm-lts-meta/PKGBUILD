@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-vm-lts-meta")
-pkgver=20160329.1
+pkgver=20160329.2
 pkgrel=1
 pkgdesc="Install vm boot packages"
 arch=("i686" "x86_64")
@@ -10,7 +10,7 @@ license=("custom")
 depends=(
 	"grub"
 	"linux-lts"
-	"linux-headers-lts"
+	"linux-lts-headers"
 )
 provides=("stonecold-0-boot-meta")
 
