@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-arm-meta")
-pkgver=20150512.1
+pkgver=20160328.3
 pkgrel=1
 pkgdesc="Install arm packages"
 arch=("x86_64")
@@ -11,9 +11,11 @@ depends=(
 	"x-tools-armv5"
 	"x-tools-armv6h"
 	"x-tools-armv7h"
+	"x-tools-aarch64"
 	"distccd-alarm-armv5"
 	"distccd-alarm-armv6h"
 	"distccd-alarm-armv7h"
+	"distccd-alarm-aarch64"
 )
 install="${pkgname}.install"
 

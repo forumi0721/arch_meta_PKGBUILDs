@@ -1,16 +1,16 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-0-boot-pc-bios-meta")
+pkgname=("stonecold-0-boot-vm-lts-meta")
 pkgver=20160329.1
 pkgrel=1
-pkgdesc="Install pc bios packages"
+pkgdesc="Install vm boot packages"
 arch=("i686" "x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
 	"grub"
-	"linux"
-	"linux-headers"
+	"linux-lts"
+	"linux-headers-lts"
 )
 provides=("stonecold-0-boot-meta")
 

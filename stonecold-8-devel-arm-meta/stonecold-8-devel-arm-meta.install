@@ -15,6 +15,7 @@ post_install() {
 	echo_red   " # systemctl enable distccd-armv5.service"
 	echo_red   " # systemctl enable distccd-armv6h.service"
 	echo_red   " # systemctl enable distccd-armv7h.service"
+	echo_red   " # systemctl enable distccd-aarch64.service"
 }
 
 post_upgrade() {

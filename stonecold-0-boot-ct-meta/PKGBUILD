@@ -1,20 +1,16 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-ct-meta")
-pkgver=20150513.1
+pkgver=20160329.1
 pkgrel=1
-pkgdesc="Install ct boot packages"
+pkgdesc="Install container boot packages"
 arch=("i686" "x86_64")
 url="http://localhost/"
 license=("custom")
 depends=(
 	"linux-headers"
 )
-conflicts=(
-	"stonecold-0-boot-pc-bios-meta"
-	"stonecold-0-boot-pc-efi-meta"
-	"stonecold-0-boot-vm-meta"
-)
+provides=("stonecold-0-boot-meta")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
