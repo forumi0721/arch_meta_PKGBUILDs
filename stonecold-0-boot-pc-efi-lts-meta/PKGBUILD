@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-pc-efi-lts-meta")
-pkgver=20160329.2
+pkgver=20160329.3
 pkgrel=1
 pkgdesc="Install pc efi packages"
 arch=("x86_64")
@@ -13,6 +13,7 @@ depends=(
 	"linux-lts"
 	"linux-lts-headers"
 )
+conflicts=("stonecold-0-boot-meta")
 provides=("stonecold-0-boot-meta")
 
 pkgver() {
