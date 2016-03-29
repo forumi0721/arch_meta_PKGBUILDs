@@ -457,7 +457,9 @@ set nobackup
 set undodir=
 
 "viminfo 생성금지
-set viminfo=
+if has("gui_running")
+	set viminfo=
+endif
 
 "명령행 기록
 set history=100
