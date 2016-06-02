@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-meta")
-pkgver=20151207.1
+pkgver=20160602.1
 pkgrel=1
 pkgdesc="Install xorg packages"
 arch=("any")
@@ -21,6 +21,11 @@ depends=(
 	"ttf-nanum-fonts"
 	"ttf-win81-fonts-korean"
 	"wxgtk"
+	"fcitx"
+	"fcitx-configtool"
+	"fcitx-gtk2"
+	"fcitx-gtk3"
+	"fcitx-hangul"
 )
 depends+=(
 	"chromium"
@@ -29,7 +34,6 @@ depends+=(
 	"gvim"
 	"libreoffice-fresh"
 	"libreoffice-fresh-ko"
-	"nabi-git"
 	"sylpheed"
 )
 conflicts=("stonecold-5-xorg-headless-meta")
