@@ -141,16 +141,6 @@ unset DBUS_SESSION_BUS_ADDRESS
 export LANG=ko_KR.UTF-8
 export XKL_XMODMAP_DISABLE=1
 
-if [ -e /usr/bin/nabi ]; then
-	export XIM=nabi
-	export XIM_PROGRAM=/usr/bin/nabi
-	export XIM_ARGS=
-	export XMODIFIERS="@im=nabi"
-	export GTK_IM_MODULE=xim
-	export QT_IM_MODULE=xim
-	/usr/bin/nabi &
-fi
-
 vncconfig -nowin&
 
 exec startxfce4
