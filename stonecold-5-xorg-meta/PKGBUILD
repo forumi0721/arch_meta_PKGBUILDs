@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-meta")
-pkgver=20160602.1
+pkgver=20160607.1
 pkgrel=1
 pkgdesc="Install xorg packages"
 arch=("any")
@@ -17,9 +17,7 @@ depends=(
 	"pygtk"
 	"tango-icon-theme"
 	"tigervnc"
-	"ttf-bitstream-vera-sans-mono"
-	"ttf-nanum-fonts"
-	"ttf-win81-fonts-korean"
+	"ttf-hangul-conf"
 	"wxgtk"
 	"fcitx"
 	"fcitx-configtool"
