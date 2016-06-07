@@ -101,6 +101,35 @@ cat << 'EOF' > ~/.gitconfig
 EOF
 chmod 644 ~/.gitconfig
 
+#.xprofile
+cat << 'EOF' > ~/.xprofile
+#!/bin/sh
+
+xmodmap -e 'remove mod1 = Alt_R'
+xmodmap -e 'keycode 108 = Hangul'
+xmodmap -e 'remove control = Control_R'
+xmodmap -e 'keycode 105 = Hangul_Hanja'
+
+if [ -e /usr/bin/nabi ]; then
+	export XIM=nabi
+	export XIM_PROGRAM=/usr/bin/nabi
+	export XIM_ARGS=
+	export XMODIFIERS="@im=nabi"
+	export GTK_IM_MODULE=xim
+	export QT_IM_MODULE=xim
+	/usr/bin/nabi &
+elif [ -e /usr/bin/fcitx ]; then
+	export XMODIFIERS=@im=fcitx
+	export GTK_IM_MODULE=fcitx
+	export QT_IM_MODULE=fcitx
+elif [ -e /usr/bin/ibus ]; then
+	export XMODIFIERS=@im=ibus
+	export GTK_IM_MODULE=ibus
+	export QT_IM_MODULE=ibus
+fi
+EOF
+chmod 644 ~/.xprofile
+
 #vncserver
 mkdir -p ~/.vnc
 cat << 'EOF' | xxd -r -ps > ~/.vnc/passwd
