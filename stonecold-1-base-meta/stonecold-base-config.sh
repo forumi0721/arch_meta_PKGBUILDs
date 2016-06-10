@@ -456,6 +456,9 @@ set nobackup
 "undo 사용안함
 set undodir=
 
+"~un 생성 금지
+set noundofile
+
 "viminfo 생성금지
 if has("gui_running")
 	set viminfo=
@@ -470,7 +473,8 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 "인코딩 설정
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,cp949,euc-kr,cp932,euc-jp,shift-jis,big5,latin1,ucs-2le
+"set fileencodings=utf-8,cp949,euc-kr,cp932,euc-jp,shift-jis,big5,latin1,ucs-2le
+set fileencodings=ucs-bom,utf-8,cp949,euc-kr,cp932,euc-jp,shift-jis,big5,latin1,ucs-2le
 if has("win32")
 	if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 		set termencoding=utf-8
