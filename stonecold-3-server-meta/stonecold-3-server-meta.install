@@ -11,11 +11,6 @@ echo_blue() {
 }
 
 post_install() {
-	echo_green "StoneCold server config start"
-	echo_red   " # /usr/bin/stonecold-server-config.sh"
-	/usr/bin/stonecold-server-config.sh
-	echo_green "Finish"
-	echo
 	echo_green "To configure a service to be automatically started at boot time, use the systemctl command in the following form:"
 	echo_red   " # systemctl enable vlmcsd.service"
 	echo_red   " # systemctl enable netatalk.service"
@@ -27,9 +22,6 @@ post_install() {
 	echo_red   " # systemctl enable rpcbind.service"
 	echo_red   " # systemctl enable target.service"
 	echo_red   " # systemctl enable noip2.service"
-	echo
-	echo_green "Installed scripts"
-	echo_red   " # /usr/bin/stonecold-server-config.sh"
 }
 
 post_upgrade() {

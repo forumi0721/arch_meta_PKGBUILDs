@@ -23,8 +23,6 @@ depends+=(
 	"vlmcsd"
 )
 install="${pkgname}.install"
-source=("stonecold-server-config.sh")
-md5sums=("SKIP")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -52,7 +50,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	install -dm755 "${pkgdir}/usr/bin"
-	install -Dm755 "${srcdir}/stonecold-server-config.sh" "${pkgdir}/usr/bin/"
-}
