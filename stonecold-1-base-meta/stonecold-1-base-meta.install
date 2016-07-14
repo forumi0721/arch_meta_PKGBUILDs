@@ -26,6 +26,7 @@ post_install() {
 	echo_red   " # systemctl enable haveged.service"
 	echo_red   " # systemctl enable hd-idle.service"
 	echo_red   " # systemctl enable rpcbind.service"
+	echo_red   " # systemctl enable open-iscsi.service"
 	echo
 	echo_green "Installed scripts"
 	echo_red   " # /usr/bin/stonecold-base-config.sh"
