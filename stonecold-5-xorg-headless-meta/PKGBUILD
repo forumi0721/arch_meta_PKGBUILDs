@@ -1,45 +1,17 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-headless-meta")
-pkgver=20160607.1
+pkgver=20160715.1
 pkgrel=1
 pkgdesc="Install xorg headless packages"
 arch=("any")
 url="http://localhost/"
 license=("custom")
 depends=(
-	"gnome-keyring"
-	"gvfs"
-	"gvfs-mtp"
-	"gvfs-smb"
-	"pygtk"
-	"tango-icon-theme"
-	"tigervnc"
-	"ttf-hangul-conf"
-	"wxgtk"
-	"fcitx"
-	"fcitx-configtool"
-	"fcitx-gtk2"
-	"fcitx-gtk3"
-	"fcitx-hangul"
-)
-depends+=(
-	"chromium"
-	"chromium-pepper-flash"
-	"gimp"
-	"gvim"
-	"libreoffice-fresh"
-	"libreoffice-fresh-ko"
-	"sylpheed"
+	"stonecold-5-xorg-base-meta"
 )
 conflicts=("stonecold-5-xorg-meta")
 install="${pkgname}.install"
-source=(
-	"stonecold-xorg-config.sh"
-)
-md5sums=(
-	"SKIP"
-)
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -67,7 +39,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	install -dm755 "${pkgdir}/usr/bin"
-	install -Dm755 "${srcdir}/stonecold-xorg-config.sh" "${pkgdir}/usr/bin/"
-}
