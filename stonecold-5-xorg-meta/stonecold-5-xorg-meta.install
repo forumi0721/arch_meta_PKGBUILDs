@@ -11,17 +11,9 @@ echo_blue() {
 }
 
 post_install() {
-	echo_green "StoneCold xorg config start"
-	echo_red   " # /usr/bin/stonecold-xorg-config.sh"
-	/usr/bin/stonecold-xorg-config.sh
-	echo_green "Finish"
-	echo
 	echo_green "To configure a service to be automatically started at boot time, use the systemctl command in the following form:"
 	echo_red   " # systemctl enable lightdm.service"
 	echo_red   " # systemctl enable vncserver.service"
-	echo
-	echo_green "Installed scripts"
-	echo_red   " # /usr/bin/stonecold-xorg-config.sh"
 }
 
 post_upgrade() {
