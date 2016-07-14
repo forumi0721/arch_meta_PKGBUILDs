@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-4-media-meta")
-pkgver=20160329.1
+pkgver=20160715.1
 pkgrel=1
 pkgdesc="Install media packages"
 arch=("any")
@@ -15,8 +15,6 @@ depends=(
 	"scepg-git"
 )
 install="${pkgname}.install"
-source=("stonecold-media-config.sh")
-md5sums=("SKIP")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -44,7 +42,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	install -dm755 "${pkgdir}/usr/bin"
-	install -Dm755 "${srcdir}/stonecold-media-config.sh" "${pkgdir}/usr/bin/"
-}
