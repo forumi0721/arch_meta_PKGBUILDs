@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-meta")
-pkgver=20160608.1
+pkgver=20160715.1
 pkgrel=1
 pkgdesc="Install base packages"
 arch=("any")
@@ -17,10 +17,8 @@ depends=(
 	"btrfs-progs"
 	"cifs-utils"
 	"cpio"
-	"cronie"
 	"dosfstools"
 	"elinks"
-	"ethtool"
 	"f2fs-tools"
 	"gptfdisk"
 	"haveged"
@@ -29,7 +27,6 @@ depends=(
 	"lsof"
 	"mc"
 	"ncftp"
-	"net-tools"
 	"nfs-utils"
 	"ntfs-3g"
 	"openssh"
@@ -56,7 +53,7 @@ install="${pkgname}.install"
 source=(
 	"stonecold-base-config.sh"
 	"stonecold-home-config.sh"
-	"stonecold-ssd-config.sh"
+	"vm.swappiness.conf"
 )
 md5sums=(
 	"SKIP"
@@ -94,5 +91,8 @@ package() {
 	install -dm755 "${pkgdir}/usr/bin"
 	install -Dm755 "${srcdir}/stonecold-base-config.sh" "${pkgdir}/usr/bin/"
 	install -Dm755 "${srcdir}/stonecold-home-config.sh" "${pkgdir}/usr/bin/"
-	install -Dm755 "${srcdir}/stonecold-ssd-config.sh" "${pkgdir}/usr/bin/"
+
+	install -dm755 "${pkgdir}/etc/sysctl.d"
+	install -Dm644 "${srcdir}/vm.swappiness.conf" "${pkgdir}/etc/sysctl.d"
 }
+

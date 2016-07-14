@@ -23,7 +23,6 @@ post_install() {
 	echo_red   " # systemctl enable fstrim.timer"
 	echo_red   " # systemctl enable sshd.service"
 	echo_red   " # systemctl enable autostart.service"
-	echo_red   " # systemctl enable cronie.service"
 	echo_red   " # systemctl enable haveged.service"
 	echo_red   " # systemctl enable hd-idle.service"
 	echo_red   " # systemctl enable rpcbind.service"
@@ -31,7 +30,6 @@ post_install() {
 	echo_green "Installed scripts"
 	echo_red   " # /usr/bin/stonecold-base-config.sh"
 	echo_red   " # /usr/bin/stonecold-home-config.sh"
-	echo_red   " # /usr/bin/stonecold-ssd-config.sh"
 }
 
 post_upgrade() {
