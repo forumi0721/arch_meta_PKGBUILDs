@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-3-server-meta")
-pkgver=20160715.1
+pkgver=20160717.1
 pkgrel=1
 pkgdesc="Install server packages"
 arch=("any")
@@ -9,10 +9,10 @@ url="http://localhost/"
 license=("custom")
 depends=(
 	"apache-tools"
+	"ddclient"
 	"netatalk"
 	"nfs-utils"
 	"nginx-with-dav"
-	"noip"
 	"php"
 	"php-fpm"
 	"samba"
