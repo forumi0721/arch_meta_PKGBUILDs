@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-ct-lts-meta")
-pkgver=20160811.1
+pkgver=20160812.1
 pkgrel=1
 pkgdesc="Container lts boot meta package"
 arch=("i686" "x86_64")
@@ -10,7 +10,7 @@ license=("custom")
 depends=(
 	"linux-lts-headers"
 )
-conflicts=("stonecold-0-boot-meta")
+conflicts=("stonecold-0-boot-meta" "linux" "linux-headers")
 provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {

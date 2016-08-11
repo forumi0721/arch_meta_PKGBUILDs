@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-bpi-meta")
-pkgver=20160811.1
+pkgver=20160812.1
 pkgrel=1
 pkgdesc="BananaPi boot meta pacakge"
 arch=("armv7h")
@@ -13,7 +13,7 @@ depends=(
 	"uboot-bananapi"
 	"sunxi-tools"
 )
-conflicts=("stonecold-0-boot-meta")
+conflicts=("stonecold-0-boot-meta" "linux" "linux-headers" "linux-lts" "linux-lts-headers")
 provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {
