@@ -1,0 +1,74 @@
+# Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
+
+pkgname=("stonecold-1-base-devel-meta")
+pkgver=20160811.1
+pkgrel=1
+pkgdesc="Development meta package"
+arch=("any")
+url="http://stonecold.kr/"
+license=("custom")
+depends=(
+	"autoconf"
+	"automake"
+	"binutils"
+	"bison"
+	"fakeroot"
+	"file"
+	"findutils"
+	"flex"
+	"gawk"
+	"gcc"
+	"gettext"
+	"grep"
+	"groff"
+	"gzip"
+	"libtool"
+	"m4"
+	"make"
+	"pacman"
+	"patch"
+	"pkg-config"
+	"sed"
+	"sudo"
+	"texinfo"
+	"util-linux"
+	"which"
+)
+depends+=(
+	"arch-install-scripts"
+	"ccache"
+	"cscope"
+	"ctags"
+	"distcc"
+	"gdb"
+	"git"
+	"strace"
+	"subversion"
+)
+
+pkgver() {
+	local date="$(date +'%Y%m%d')"
+	local revision="1"
+	local pkgarch="${arch}"
+	if [ "${pkgarch}" != "any" ]; then
+		pkgarch="${CARCH}"
+	fi
+	if [ "$(echo "${pkgver}" | cut -d '.' -f 1)" = "${date}" ]; then
+		revision="$(echo "${pkgver}" | cut -d '.' -f 2)"
+	fi
+	for pkg in $(ls "${startdir}"/${pkgname}-${date}.*-${pkgrel}-*.pkg.tar.* 2> /dev/null)
+	do
+		local prevpkgrev="$(echo "${pkg}" | sed 's/^\(.*\)-\(.*\)\.\(.*\)-\(.*\)-\(.*\)\.pkg\.tar\..*$/\3/g')"
+		if [ "${prevpkgrev}" -ge "${revision}" ]; then
+			revision="${prevpkgrev}"
+		fi
+	done
+
+	local prevpkg=$(ls "${startdir}"/${pkgname}-${date}.${revision}-${pkgrel}-${pkgarch}.pkg.tar.* 2> /dev/null)
+	if [ ! -z "${prevpkg}" ]; then
+		revision="$((${revision} + 1))"
+	fi
+
+	echo "${date}.${revision}"
+}
+

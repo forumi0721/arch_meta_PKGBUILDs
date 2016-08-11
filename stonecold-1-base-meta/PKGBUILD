@@ -1,36 +1,22 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-meta")
-pkgver=20160715.2
+pkgver=20160811.1
 pkgrel=1
-pkgdesc="Install base packages"
+pkgdesc="Base meta package"
 arch=("any")
-url="http://localhost/"
+url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"abs"
-	"afpfs-ng"
-	"arch-install-scripts"
 	"autostart"
 	"bash-completion"
 	"bashdb"
-	"btrfs-progs"
-	"cifs-utils"
 	"cpio"
-	"dosfstools"
-	"elinks"
-	"f2fs-tools"
 	"gptfdisk"
 	"haveged"
-	"hd-idle"
-	"iotop"
 	"lsof"
-	"mc"
-	"ncftp"
-	"nfs-utils"
-	"ntfs-3g"
 	"openssh"
-	"open-iscsi"
 	"p7zip"
 	"pkgfile"
 	"screen"
@@ -43,20 +29,15 @@ depends=(
 	"yaourt"
 	"zip"
 )
-depends+=(
-	"zsh"
-	"zsh-completions"
-	"zsh-syntax-highlighting"
-	"zshdb"
-	"oh-my-zsh-git"
-)
-install="${pkgname}.install"
+install=stonecold-meta.install
 source=(
 	"stonecold-base-config.sh"
+	"stonecold-base-config.tar.xz"
 	"stonecold-home-config.sh"
-	"vm.swappiness.conf"
+	"stonecold-home-config.tar.xz"
 )
 md5sums=(
+	"SKIP"
 	"SKIP"
 	"SKIP"
 	"SKIP"
@@ -93,7 +74,8 @@ package() {
 	install -Dm755 "${srcdir}/stonecold-base-config.sh" "${pkgdir}/usr/bin/"
 	install -Dm755 "${srcdir}/stonecold-home-config.sh" "${pkgdir}/usr/bin/"
 
-	install -dm755 "${pkgdir}/etc/sysctl.d"
-	install -Dm644 "${srcdir}/vm.swappiness.conf" "${pkgdir}/etc/sysctl.d"
+	install -dm755 "${pkgdir}/usr/share"
+	cp -ar "${srcdir}/stonecold-base-config" "${pkgdir}/usr/share/"
+	cp -ar "${srcdir}/stonecold-home-config" "${pkgdir}/usr/share/"
 }
 

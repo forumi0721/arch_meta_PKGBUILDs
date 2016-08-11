@@ -1,11 +1,11 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-android-meta")
-pkgver=20160602.1
+pkgver=20160811.1
 pkgrel=1
-pkgdesc="Install android packages"
+pkgdesc="Android development meta package"
 arch=("i686" "x86_64")
-url="http://localhost/"
+url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"java-runtime"
@@ -113,6 +113,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	echo > /dev/null
-}

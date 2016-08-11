@@ -1,17 +1,17 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-8-devel-arduino-meta")
-pkgver=20150520.1
+pkgver=20160811.1
 pkgrel=1
-pkgdesc="Install arduino packages"
+pkgdesc="Arduino development meta package"
 arch=("i686" "x86_64")
-url="http://localhost/"
+url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"giflib"
 	"arduino"
 )
-install="${pkgname}.install"
+install=stonecold-meta.install
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -39,6 +39,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	echo > /dev/null
-}

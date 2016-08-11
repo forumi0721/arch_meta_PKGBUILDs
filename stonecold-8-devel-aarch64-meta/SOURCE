@@ -1,0 +1,5 @@
+#!/bin/sh
+
+LOCALPKGVER="Y"
+SOURCETYPE="local"
+

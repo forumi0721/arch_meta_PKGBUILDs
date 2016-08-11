@@ -1,11 +1,11 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-0-boot-vm-meta")
-pkgver=20160329.2
+pkgver=20160811.1
 pkgrel=1
-pkgdesc="Install vm boot packages"
+pkgdesc="VM boot meta package"
 arch=("i686" "x86_64")
-url="http://localhost/"
+url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"grub"
@@ -13,7 +13,7 @@ depends=(
 	"linux-headers"
 )
 conflicts=("stonecold-0-boot-meta")
-provides=("stonecold-0-boot-meta")
+provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
@@ -41,6 +41,3 @@ pkgver() {
 	echo "${date}.${revision}"
 }
 
-package() {
-	echo > /dev/null
-}

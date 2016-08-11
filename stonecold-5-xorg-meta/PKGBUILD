@@ -1,19 +1,163 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-meta")
-pkgver=20160715.1
+pkgver=20160811.1
 pkgrel=1
-pkgdesc="Install xorg packages"
-arch=("any")
-url="http://localhost/"
+pkgdesc="X.org meta package"
+arch=("x86_64" "i686" "arm" "armv6h" "armv7h")
+url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"stonecold-5-xorg-base-meta"
-	"lightdm"
-	"lightdm-gtk-greeter"
+	"ttf-hangul-conf"
 )
-conflicts=("stonecold-5-xorg-headless-meta")
-install="${pkgname}.install"
+depends_x86_64=(
+	"xf86-input-evdev"
+	"xf86-input-joystick"
+	"xf86-input-keyboard"
+	"xf86-input-libinput"
+	"xf86-input-mouse"
+	"xf86-input-void"
+	"xf86-video-dummy"
+	"xf86-video-fbdev"
+	"xf86-video-vesa"
+	"xorg-bdftopcf"
+	"xorg-docs"
+	"xorg-font-util"
+	"xorg-fonts-100dpi"
+	"xorg-fonts-75dpi"
+	"xorg-fonts-encodings"
+	"xorg-iceauth"
+	"xorg-luit"
+	"xorg-mkfontdir"
+	"xorg-mkfontscale"
+	"xorg-server"
+	"xorg-server-common"
+	"xorg-server-devel"
+	"xorg-server-xdmx"
+	"xorg-server-xephyr"
+	"xorg-server-xnest"
+	"xorg-server-xvfb"
+	"xorg-server-xwayland"
+	"xorg-sessreg"
+	"xorg-setxkbmap"
+	"xorg-smproxy"
+	"xorg-x11perf"
+	"xorg-xauth"
+	"xorg-xbacklight"
+	"xorg-xcmsdb"
+	"xorg-xcursorgen"
+	"xorg-xdpyinfo"
+	"xorg-xdriinfo"
+	"xorg-xev"
+	"xorg-xgamma"
+	"xorg-xhost"
+	"xorg-xinput"
+	"xorg-xkbcomp"
+	"xorg-xkbevd"
+	"xorg-xkbutils"
+	"xorg-xkill"
+	"xorg-xlsatoms"
+	"xorg-xlsclients"
+	"xorg-xmodmap"
+	"xorg-xpr"
+	"xorg-xprop"
+	"xorg-xrandr"
+	"xorg-xrdb"
+	"xorg-xrefresh"
+	"xorg-xset"
+	"xorg-xsetroot"
+	"xorg-xvinfo"
+	"xorg-xwd"
+	"xorg-xwininfo"
+	"xorg-xwud"
+)
+#xf86-input-synaptics
+#xf86-input-vmmouse
+#xf86-video-amdgpu
+#xf86-video-ark
+#xf86-video-ati
+#xf86-video-glint
+#xf86-video-i128
+#xf86-video-intel
+#xf86-video-mach64
+#xf86-video-neomagic
+#xf86-video-nouveau
+#xf86-video-nv
+#xf86-video-openchrome
+#xf86-video-r128
+#xf86-video-savage
+#xf86-video-siliconmotion
+#xf86-video-sis
+#xf86-video-tdfx
+#xf86-video-trident
+#xf86-video-voodoo
+#xf86-video-vmware
+depends_i686=(
+	${depends_x86_64[@]}
+)
+depends_armv7h=(
+	"xf86-input-evdev"
+	"xf86-input-joystick"
+	"xf86-input-keyboard"
+	"xf86-input-libinput"
+	"xf86-input-mouse"
+	"xf86-input-void"
+	"xf86-video-dummy"
+	"xf86-video-fbdev"
+	"xf86-video-vesa"
+	"xorg-bdftopcf"
+	"xorg-docs"
+	"xorg-font-util"
+	"xorg-fonts-100dpi"
+	"xorg-fonts-75dpi"
+	"xorg-fonts-encodings"
+	"xorg-iceauth"
+	"xorg-luit"
+	"xorg-mkfontdir"
+	"xorg-mkfontscale"
+	"xorg-server"
+	"xorg-server-common"
+	"xorg-sessreg"
+	"xorg-setxkbmap"
+	"xorg-smproxy"
+	"xorg-x11perf"
+	"xorg-xauth"
+	"xorg-xbacklight"
+	"xorg-xcmsdb"
+	"xorg-xcursorgen"
+	"xorg-xdpyinfo"
+	"xorg-xdriinfo"
+	"xorg-xev"
+	"xorg-xgamma"
+	"xorg-xhost"
+	"xorg-xinput"
+	"xorg-xkbcomp"
+	"xorg-xkbevd"
+	"xorg-xkbutils"
+	"xorg-xkill"
+	"xorg-xlsatoms"
+	"xorg-xlsclients"
+	"xorg-xmodmap"
+	"xorg-xpr"
+	"xorg-xprop"
+	"xorg-xrandr"
+	"xorg-xrdb"
+	"xorg-xrefresh"
+	"xorg-xset"
+	"xorg-xsetroot"
+	"xorg-xvinfo"
+	"xorg-xwd"
+	"xorg-xwininfo"
+	"xorg-xwud"
+)
+#xf86-input-synaptics
+#xf86-video-nouveau
+depends_armv6h=(
+	${depends_armv7h[@]}
+)
+depends_armv5=(
+	${depends_armv7h[@]}
+)
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

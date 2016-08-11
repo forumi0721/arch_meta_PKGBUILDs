@@ -1,0 +1,42 @@
+# Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
+
+pkgname=("stonecold-6-xorg-dm-meta")
+pkgver=20160811.1
+pkgrel=1
+pkgdesc="Display manager meta package"
+arch=("any")
+url="http://stonecold.kr/"
+license=("custom")
+depends=(
+	"stonecold-5-xorg-meta"
+	"lightdm"
+	"lightdm-gtk-greeter"
+)
+install=stonecold-meta.install
+
+pkgver() {
+	local date="$(date +'%Y%m%d')"
+	local revision="1"
+	local pkgarch="${arch}"
+	if [ "${pkgarch}" != "any" ]; then
+		pkgarch="${CARCH}"
+	fi
+	if [ "$(echo "${pkgver}" | cut -d '.' -f 1)" = "${date}" ]; then
+		revision="$(echo "${pkgver}" | cut -d '.' -f 2)"
+	fi
+	for pkg in $(ls "${startdir}"/${pkgname}-${date}.*-${pkgrel}-*.pkg.tar.* 2> /dev/null)
+	do
+		local prevpkgrev="$(echo "${pkg}" | sed 's/^\(.*\)-\(.*\)\.\(.*\)-\(.*\)-\(.*\)\.pkg\.tar\..*$/\3/g')"
+		if [ "${prevpkgrev}" -ge "${revision}" ]; then
+			revision="${prevpkgrev}"
+		fi
+	done
+
+	local prevpkg=$(ls "${startdir}"/${pkgname}-${date}.${revision}-${pkgrel}-${pkgarch}.pkg.tar.* 2> /dev/null)
+	if [ ! -z "${prevpkg}" ]; then
+		revision="$((${revision} + 1))"
+	fi
+
+	echo "${date}.${revision}"
+}
+
