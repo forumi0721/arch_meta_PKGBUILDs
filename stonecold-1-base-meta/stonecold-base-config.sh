@@ -32,11 +32,21 @@ if [ -e /etc/skel/.bashrc ]; then
 	sed -i "s/^PS1=/#PS1=/g" /etc/skel/.bashrc
 fi
 
+for skel in $(find /etc/skel/ -maxdepth 1 -mindepth 1)
+do
+	if ! diff ${skel} /root/"$(basename "${skel}")" &> /dev/null ; then
+		cp -ar "${skel}" /root/
+	fi
+done
+
 
 #vm.wappiness
 if ! diff /usr/share/stonecold-base-config/vm.swappiness.conf /etc/sysctl.d/vm.swappiness.conf &> /dev/null ; then
+	if [ ! -e /etc/sysctl.d ]; then
+		mkdir -p /etc/sysctl.d
+	fi
 	cp -f /usr/share/stonecold-base-config/vm.swappiness.conf /etc/sysctl.d/vm.swappiness.conf
-	chmod 644 /etc/commonrc
+	chmod 644 /etc/sysctl.d/vm.swappiness.conf
 fi
 
 
@@ -75,7 +85,7 @@ if [ -e /etc/ssh ]; then
 		fi
 	done
 
-	for key_pub in ssh_host_dsa_key.pub ssh_host_ecdsa_key.pub ssh_host_ed25519_key.pub ssh_host_key.pub ssh_host_rsa_key.pub ssh_host_dsa_key /etc/ssh/ssh_host_dsa_key
+	for key_pub in ssh_host_dsa_key.pub ssh_host_ecdsa_key.pub ssh_host_ed25519_key.pub ssh_host_key.pub ssh_host_rsa_key.pub ssh_host_dsa_key ssh_host_dsa_key
 	do
 		if ! diff /usr/share/stonecold-base-config/${key_pub} /etc/ssh/${key_pub} &> /dev/null ; then
 			cp -f /usr/share/stonecold-base-config/${key_pub} /etc/ssh/${key_pub}
@@ -87,7 +97,7 @@ fi
 
 #sudoers
 if [ -e /etc/sudoers.d ]; then
-	if ! diff /usr/share/stonecold-base-config/sudoers /etc/sudoers.d/sudoers
+	if ! diff /usr/share/stonecold-base-config/sudoers /etc/sudoers.d/sudoers &> /dev/null ; then
 		cp -f /usr/share/stonecold-base-config/sudoers /etc/sudoers.d/sudoers
 		chmod 644 /etc/sudoers.d/sudoers
 	fi
@@ -105,7 +115,7 @@ fi
 
 #vimrc
 if [ -e /etc/vimrc ]; then
-	if ! diff /usr/share/stonecold-base-config/vimrc2 /etc/vimrc2
+	if ! diff /usr/share/stonecold-base-config/vimrc2 /etc/vimrc2 &> /dev/null ; then
 		cp -f /usr/share/stonecold-base-config/vimrc2 /etc/vimrc2
 		chmod 644 /etc/vimrc2
 	fi

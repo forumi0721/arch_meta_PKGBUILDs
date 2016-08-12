@@ -22,8 +22,6 @@ post_install() {
 	echo_red   " # systemctl enable systemd-timesyncd.service"
 	echo_red   " # systemctl enable fstrim.timer"
 	echo_red   " # systemctl enable sshd.service"
-	echo_red   " # systemctl enable autostart.service"
-	echo_red   " # systemctl enable haveged.service"
 	echo
 	echo_green "Installed scripts"
 	echo_red   " # /usr/bin/stonecold-base-config.sh"

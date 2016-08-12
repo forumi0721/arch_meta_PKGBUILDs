@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-meta")
-pkgver=20160812.1
+pkgver=20160812.9
 pkgrel=1
 pkgdesc="Base meta package"
 arch=("any")
@@ -9,12 +9,9 @@ url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"abs"
-	"autostart"
 	"bash-completion"
 	"bashdb"
-	"cpio"
 	"gptfdisk"
-	"haveged"
 	"lsof"
 	"openssh"
 	"p7zip"
