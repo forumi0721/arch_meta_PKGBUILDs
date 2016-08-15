@@ -1,24 +1,16 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-8-devel-bpi-meta")
-pkgver=20160811.1
+pkgname=("stonecold-2-util-opi-meta")
+pkgver=20160815.1
 pkgrel=1
-pkgdesc="BananaPi develeopment meta package"
-arch=("x86_64")
+pkgdesc="OrangePi util meta package"
+arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"fakeroot"
-	"git"
-	"libusb"
-	"ncurses"
-	"pkg-config"
-	"uboot-tools"
-	"wget"
-	"x-tools-4-armv7h"
-	"zlib"
+	"lcd_display-git"
 )
-#"linux-headers"
+install=stonecold-meta.install
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

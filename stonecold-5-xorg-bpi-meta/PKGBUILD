@@ -1,19 +1,19 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-5-xorg-bpi-meta")
-pkgver=20160811.1
+pkgver=20160816.1
 pkgrel=1
-pkgdesc="Banana Pi X.org meta package"
+pkgdesc="BananaPi X.org meta package"
 arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"stonecold-5-xorg-meta"
-	"xf86-video-fbturbo-bananapi-git"
-	"cedarx-libs-bananapi-git"
-	"libump-bananapi-git"
-	"libvdpau-sunxi-bananapi-git"
-	"sunxi-mali-bananapi-git"
+	"xf86-video-fbturbo-git"
+	"cedarx-libs-bpi-git"
+	"libump-bpi-git"
+	"libvdpau-sunxi-bpi-git"
+	"sunxi-mali-bpi-git"
 )
 
 pkgver() {

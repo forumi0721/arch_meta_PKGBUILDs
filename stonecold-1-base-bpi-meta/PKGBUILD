@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-1-base-bpi-meta")
-pkgver=20160811.1
+pkgver=20160815.1
 pkgrel=1
 pkgdesc="BananaPi base meta package"
 arch=("armv7h")
@@ -10,9 +10,9 @@ license=("custom")
 depends=(
 	"archlinux-keyring"
 	"archlinuxarm-keyring"
-	"python-bananapi-gpio-git"
-	"python2-bananapi-gpio-git"
-	"wiringbp-bananapi-git"
+	"python-bpi-gpio-git"
+	"python2-bpi-gpio-git"
+	"wiringbp-bpi-git"
 )
 
 pkgver() {

@@ -1,20 +1,17 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-0-boot-bpi-meta")
+pkgname=("stonecold-1-base-opi-meta")
 pkgver=20160815.1
 pkgrel=1
-pkgdesc="BananaPi boot meta pacakge"
+pkgdesc="OrangePi base meta package"
 arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"linux-bpi"
-	"linux-bpi-headers"
-	"uboot-bpi"
-	"sunxi-tools"
+	"archlinux-keyring"
+	"archlinuxarm-keyring"
+	"wiringop-opi-git"
 )
-conflicts=("stonecold-0-boot-meta" "linux" "linux-headers" "linux-lts" "linux-lts-headers")
-provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

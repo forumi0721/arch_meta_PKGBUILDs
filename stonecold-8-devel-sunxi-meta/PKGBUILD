@@ -1,20 +1,24 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-0-boot-bpi-meta")
-pkgver=20160815.1
+pkgname=("stonecold-8-devel-sunxi-meta")
+pkgver=20160816.1
 pkgrel=1
-pkgdesc="BananaPi boot meta pacakge"
-arch=("armv7h")
+pkgdesc="sunxi develeopment meta package"
+arch=("x86_64")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"linux-bpi"
-	"linux-bpi-headers"
-	"uboot-bpi"
-	"sunxi-tools"
+	"fakeroot"
+	"git"
+	"libusb"
+	"ncurses"
+	"pkg-config"
+	"uboot-tools"
+	"wget"
+	"x-tools-4-armv7h"
+	"zlib"
 )
-conflicts=("stonecold-0-boot-meta" "linux" "linux-headers" "linux-lts" "linux-lts-headers")
-provides=("stonecold-0-boot-meta" "linux" "linux-headers")
+#"linux-headers"
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

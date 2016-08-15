@@ -1,7 +1,7 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
 pkgname=("stonecold-2-util-bpi-meta")
-pkgver=20160811.1
+pkgver=20160815.1
 pkgrel=1
 pkgdesc="BananaPi util meta package"
 arch=("armv7h")
@@ -9,7 +9,7 @@ url="http://stonecold.kr/"
 license=("custom")
 depends=(
 	"lcd_display-git"
-	"bananapi-tools"
+	"bpi-tools"
 )
 install=stonecold-meta.install
 
