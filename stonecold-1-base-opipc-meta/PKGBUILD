@@ -1,19 +1,16 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-5-xorg-opi-meta")
+pkgname=("stonecold-1-base-opipc-meta")
 pkgver=20160816.1
 pkgrel=1
-pkgdesc="OrangePi X.org meta package"
+pkgdesc="OrangePi base meta package"
 arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"stonecold-5-xorg-meta"
-	"xf86-video-fbturbo-git"
-	"cedarx-libs-opi-git"
-	"libump-opi-git"
-	"libvdpau-sunxi-opi-git"
-	"sunxi-mali-opi-git"
+	"archlinux-keyring"
+	"archlinuxarm-keyring"
+	"wiringop-opipc-git"
 )
 
 pkgver() {

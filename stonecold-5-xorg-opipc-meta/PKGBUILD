@@ -1,17 +1,20 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-0-boot-ct-lts-meta")
-pkgver=20160812.1
+pkgname=("stonecold-5-xorg-opipc-meta")
+pkgver=20160816.1
 pkgrel=1
-pkgdesc="Container lts boot meta package"
-arch=("i686" "x86_64")
+pkgdesc="OrangePi X.org meta package"
+arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"linux-lts-headers"
+	"stonecold-5-xorg-meta"
+	"xf86-video-fbturbo-git"
+	"cedarx-libs-opipc-git"
+	"libump-opipc-git"
+	"libvdpau-sunxi-opipc-git"
+	"sunxi-mali-opipc-git"
 )
-conflicts=("stonecold-0-boot-meta" "linux" "linux-headers")
-provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"

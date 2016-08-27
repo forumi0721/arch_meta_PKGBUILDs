@@ -1,16 +1,20 @@
 # Maintainer: StoneCold <forumi0721[at]gmail[dot]com>
 
-pkgname=("stonecold-2-util-opi-meta")
+pkgname=("stonecold-0-boot-bpi-meta")
 pkgver=20160815.1
 pkgrel=1
-pkgdesc="OrangePi util meta package"
+pkgdesc="BananaPi boot meta pacakge"
 arch=("armv7h")
 url="http://stonecold.kr/"
 license=("custom")
 depends=(
-	"lcd_display-git"
+	"linux-bpi"
+	"linux-bpi-headers"
+	"uboot-bpi"
+	"sunxi-tools"
 )
-install=stonecold-meta.install
+conflicts=("stonecold-0-boot-meta" "linux" "linux-headers" "linux-lts" "linux-lts-headers")
+provides=("stonecold-0-boot-meta" "linux" "linux-headers")
 
 pkgver() {
 	local date="$(date +'%Y%m%d')"
